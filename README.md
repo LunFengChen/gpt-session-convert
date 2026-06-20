@@ -65,3 +65,18 @@ docs/index.html
 ```
 
 所有解析和转换都在浏览器本地完成，不上传 token，不写入本地存储。
+
+## CLI usage
+
+This repository also provides a small Node.js CLI that reuses the same browser-page conversion logic.
+It is intended for downstream tools (for example CPA) that need to call the converter from a submodule.
+
+```bash
+# Convert normal JSON from stdin to CPA auth JSON
+node bin/gpt-session-convert.js --format cpa < session.json
+
+# Extract JSON objects from noisy text and add CPA proxy_url
+node bin/gpt-session-convert.js --format cpa --extract-json --proxy-url 'http://127.0.0.1:8080' < noisy.txt
+```
+
+Supported formats: `sub2api`, `cpa`, `cockpit`, `9router`, `codex`, `axonhub`, `codexmanager`.

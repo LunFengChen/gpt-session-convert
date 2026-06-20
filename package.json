@@ -1,0 +1,11 @@
+{
+  "name": "gpt-session-convert",
+  "version": "0.0.0",
+  "private": true,
+  "bin": {
+    "gpt-session-convert": "bin/gpt-session-convert.js"
+  },
+  "scripts": {
+    "test": "node tests/convert-session.test.js && node tests/cli.test.js"
+  }
+}
